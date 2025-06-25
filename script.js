@@ -1,6 +1,7 @@
 const grid = document.getElementById("devGrid");
 const searchInput = document.getElementById("search");
 
+// Fetch contributors list
 fetch("../contributors.json")
   .then((res) => res.json())
   .then((usernames) => {
@@ -13,22 +14,19 @@ fetch("../contributors.json")
             return;
           }
 
+          // Fetch user repos to determine top languages
           fetch(user.repos_url)
             .then((res) => res.json())
             .then((repos) => {
               if (!Array.isArray(repos)) {
-                console.warn(
-                  `Repo data for ${username} is not an array:`,
-                  repos,
-                );
+                console.warn(`Repo data for ${username} is not an array:`, repos);
                 return;
               }
 
               const langCount = {};
               repos.forEach((repo) => {
                 if (repo.language) {
-                  langCount[repo.language] =
-                    (langCount[repo.language] || 0) + 1;
+                  langCount[repo.language] = (langCount[repo.language] || 0) + 1;
                 }
               });
 
@@ -36,12 +34,13 @@ fetch("../contributors.json")
                 Object.entries(langCount)
                   .sort((a, b) => b[1] - a[1])
                   .slice(0, 3)
-                  .map((entry) => entry[0])
+                  .map(([lang]) => lang)
                   .join(", ") || "N/A";
 
+              // Create user card
               const card = document.createElement("div");
               card.className = "card";
-              card.style.animationDelay = `${index * 0.1}s`; // staggered animation
+              card.style.animationDelay = `${index * 0.1}s`; // stagger effect for fade-up
 
               card.innerHTML = `
                 <img src="${user.avatar_url}" alt="${user.login}">
@@ -50,20 +49,21 @@ fetch("../contributors.json")
                 <p><strong>Top Languages:</strong> ${topLangs}</p>
                 <a href="${user.html_url}" target="_blank">View GitHub</a>
               `;
+
               grid.appendChild(card);
             })
             .catch((err) =>
-              console.error(`Error fetching repos for ${username}:`, err),
+              console.error(`Error fetching repos for ${username}:`, err)
             );
         })
         .catch((err) =>
-          console.error(`Failed to load user data for ${username}:`, err),
+          console.error(`Failed to load user data for ${username}:`, err)
         );
     });
   })
   .catch((err) => console.error("Error loading contributors.json:", err));
 
-// 🔍 Live Search
+// 🔍 Live Search Filtering
 searchInput.addEventListener("input", (e) => {
   const value = e.target.value.toLowerCase();
   Array.from(grid.children).forEach((card) => {
