@@ -13,18 +13,18 @@
 
 ### 🌐 Live: [dev-scope.netlify.app](https://dev-scope.netlify.app)
 
-> **DevScope** is a minimal, web-based GitHub contributor showcase built for the **HashSlap Summer of Code (HSSoC)**. It allows contributors to add their GitHub profiles and automatically displays their avatars, usernames, and **top programming languages** using GitHub’s public APIs.
+> **DevScope** is a minimal, web-based GitHub contributor showcase built for the **HashSlap Summer of Code (HSSoC)**. It allows contributors to add their GitHub profiles and automatically displays their avatars, usernames, and **top programming languages** using GitHub's public APIs.
 
 ---
 
 ## ✨ Features
 
-* 🔍 **Searchable Grid View** of all contributors
-* 🧠 **Top Languages Analysis** using GitHub API
-* 🖼️ Clean, terminal-inspired UI
-* 🔧 No backend — built with HTML + JS + JSON
-* ⚡ Fast & lightweight — deploys easily on Netlify/Vercel
-* 👥 Community-driven — contributors add themselves via `contributors.json`
+- 🔍 **Searchable Grid View** of all contributors
+- 🧠 **Top Languages Analysis** using GitHub API
+- 🖼️ Clean, terminal-inspired UI
+- 🔧 No backend — built with HTML + JS + JSON
+- ⚡ Fast & lightweight — deploys easily on Netlify/Vercel
+- 👥 Community-driven — contributors add themselves via `contributors.json`
 
 ---
 
@@ -86,17 +86,23 @@ You can also open the `index.html` file directly in your browser without any ext
    cd dev-scope
    ```
 
-3. **Add your GitHub username** to the `contributors.json` file:
+
    ```json
-   [
-     "your-github-username",
-     "another-contributor"
-   ]
+   ["your-github-username", "another-contributor", "Siddhram"]
    ```
 
-4. **Commit and Push**
+4. **Preview Your Changes Locally:**
 
-5. **Create a Pull Request**
+   - Install the "Live Server" extension in VS Code (or your preferred code editor)
+   - Right-click on `src/index.html` and select "Open with Live Server"
+   - Your browser will automatically open with the preview
+   - No need to install Node.js or run any build tools! 🎉
+
+5. **Update the screenshot (Optional but Recommended!):** Replace `assets/preview.png` with a new screenshot that includes your profile card. This makes your contribution visible directly in the README.
+
+6. **Commit and Push**
+
+7. **Create a Pull Request**
 
 Once merged, your profile will appear on the website within minutes!
 
@@ -110,10 +116,10 @@ Once merged, your profile will appear on the website within minutes!
 
 ## 🧰 Tech Stack
 
-* HTML / CSS / JavaScript
-* GitHub REST API v3
-* JSON-based contributor input
-* Deployed on **Netlify**
+- HTML / CSS / JavaScript
+- GitHub REST API v3
+- JSON-based contributor input
+- Deployed on **Netlify**
 
 ---
 
@@ -125,7 +131,7 @@ This project was born out of the desire to give HSSoC contributors a **simple ye
 
 ## 👨‍💻 Made With ❤️ for HSSoC
 
- DevScope is an open-source effort by the HashSlap Summer of Code community. Contributions, feedback, and stars are always welcome!
+DevScope is an open-source effort by the HashSlap Summer of Code community. Contributions, feedback, and stars are always welcome!
 
 ---
 
